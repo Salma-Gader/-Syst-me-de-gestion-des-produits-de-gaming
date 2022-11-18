@@ -3,11 +3,13 @@ body {
 }
 
 .div_part2 {
-    background-image: linear-gradient(130deg, #fe4949, #f35585);
+    background-image: linear-gradient(130deg, #41a4dd, #3c6fa2);
 }
 
-.btn_singin {
-    background-image: linear-gradient(to right, #ff0000, #ff004c) !important;
+.btn {
+    background-image: linear-gradient(to right, #41a4dd, #3c6fa2) !important;
+    border-radius: 20px;
+    color: white !important;
 }
 
 h3 {
@@ -21,15 +23,15 @@ h3 {
 
 .btn-singup:hover {
     background-color: white;
-    color: black;
+    color: black !important;
 }
 
-.btn-singout {
+.btn-signout {
     border-radius: 20px;
     border: .7px solid white !important;
 }
 
-.btn-singout:hover {
+.btn-signout:hover {
     background-color: white;
     color: black !important;
 }
@@ -40,8 +42,44 @@ h3 {
 
 .product-table {
     /* background-color: #6dd4b1; */
-    border-radius: 20px;
-    border: .7px solid white !important;
+    border: 2px solid #3E6D9C !important;
+    border-radius: 1em !important;
     margin-top: 50px;
     padding: 50px;
+    /*overflow-x: auto;*/
 }
+
+
+/*
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.dash-body {
+    min-height: 100vh;
+    background-color: aqua;
+}
+
+.navigation {
+    position: fixed;
+    background-color: #ff0000;
+    inset: 20px;
+    width: 80px;
+    /*width: 300px;
+    border-left: 10px solid chartreuse;
+    border-radius: 50px;
+    box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.05);
+}
+
+.toggle {
+    position: absolute;
+    bottom: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: aliceblue;
+    border-radius: 20px;
+}
+*/

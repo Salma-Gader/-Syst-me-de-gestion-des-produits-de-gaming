@@ -13,7 +13,42 @@
     <title>Dasshboard</title>
 </head>
 
-<body>
+<body class="dash-body">
+    <!--start sidebar-->
+    <!--
+    <div class="navigation">
+        <ul>
+            <li>
+                <span><img src="../assets/img/logo.png" class="img-fluid" width="100px" alt="logo"></span>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="bi bi-person-circle"></i></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="bi bi-card-heading"></i></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="bi bi-plus-circle-fill"></i></span>
+                    <span class="title">Add product</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+                    <span class="title">Sign out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="toggle"></div>-->
+    <!--end sidebar-->
     <!--start navbar-->
     <nav class="navbar navbar-expand-lg" style="background-color: #3E6D9C;">
         <div class="container-fluid">
@@ -33,10 +68,10 @@
                     </li>
                 </ul>
                 <span class="navbar-text">
-                    <button class="btn-singout btn btn btn-outline-dark text-white">Add product <i class="bi bi-plus"></i></button>
+                    <button class="btn-signout btn btn btn-outline-dark text-white">Add product <i class="bi bi-plus"></i></button>
                 </span>
                 <span class="navbar-text ms-5">
-                    <button class="btn-singout btn btn btn-outline-dark text-white">Sign out</button>
+                    <button class="btn-signout btn btn btn-outline-dark text-white">Sign out <i class="bi bi-box-arrow-right"></i></button>
                 </span>
             </div>
         </div>
@@ -66,8 +101,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-table container mt-5">
-                    <table class="table">
+                <div class="product-table container mt-5 table-responsive">
+                    <table class="tabl-e table">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
@@ -83,7 +118,7 @@
                         <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td><img src="../assets/img/clavier.jpg" class="card-img-top" alt="Product" class="img-fluid" height="80" width="70px"></td>
+                                <td><img src="../assets/img/clavier (1).png" class="card-img-top" alt="Product" class="img-fluid" height="80" width="70px"></td>
                                 <td>keyboard</td>
                                 <td>keyboard gaming E50 ENET (AZERTY)</td>
                                 <td>100</td>
@@ -93,7 +128,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
-                                <td><img src="../assets/img/mouse.webp" class="card-img-top" alt="Product" class="img-fluid" height="80" width="70px"></td>
+                                <td><img src="../assets/img/mouse.png" class="card-img-top" alt="Product" class="img-fluid" height="80" width="70px"></td>
                                 <td>Mouse</td>
                                 <td>M8 Wireless Ultra-Light Gaming Mouse - Black</td>
                                 <td>160</td>
@@ -103,7 +138,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
-                                <td><img src="../assets/img/GLADIATOR.webp" class="card-img-top" alt="Product" class="img-fluid" height="80" width="70px"></td>
+                                <td><img src="../assets/img/GLADIATOR.png" class="card-img-top" alt="Product" class="img-fluid" height="80" width="70px"></td>
                                 <td>Gladiator</td>
                                 <td>GLADIATOR G001-NW</td>
                                 <td>200</td>
