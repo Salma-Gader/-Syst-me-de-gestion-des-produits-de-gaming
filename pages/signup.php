@@ -59,9 +59,7 @@
             </div>
         </div>
     </section>
-
 </body>
-
 </html>
 <?php
 include('database.php');
@@ -96,3 +94,5 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'])){ //checked if re
      }
  }
 ?>
+Footer
+

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION["email"])){
+    header("Location: signin.php");
+    exit(); 
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +78,7 @@
                     <button class="btn-signout btn btn btn-outline-dark text-white">Add product <i class="bi bi-plus"></i></button>
                 </span>
                 <span class="navbar-text ms-5">
-                    <button class="btn-signout btn btn btn-outline-dark text-white">Sign out <i class="bi bi-box-arrow-right"></i></button>
+                    <a class="btn-signout btn btn btn-outline-dark text-white" href="signout.php">Sign out <i class="bi bi-box-arrow-right"></i></a>
                 </span>
             </div>
         </div>
