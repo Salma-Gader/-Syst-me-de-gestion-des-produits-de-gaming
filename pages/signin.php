@@ -21,18 +21,19 @@
                         <div class="m-5 text-center">
                             <h3>Sign in</h3>
                         </div>
+                        
                         <div>
-                            <form class="m-5">
+                            <form class="m-5"  method="post" name="signin">
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">User Name</label>
-                                    <input type="text" id="username" class="form-control">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" id="email" class="form-control" name="email">
                                 </div>
                                 <div>
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" id="password" class="form-control">
+                                    <input type="password" id="password" class="form-control" name="password">
                                 </div>
                                 <div class="btn_div">
-                                    <a class="btn_singin form-control btn mt-3" href="dashboard.php" onclick="console.log('Hello')">Sign in</a>
+                                    <input type="submit" class="btn_singin form-control btn mt-3" value="Sign in" >
                                 </div>
 
                             </form>
@@ -55,7 +56,27 @@
             </div>
         </div>
     </section>
+<?php
+include('database.php');
+include('helpers.php');
+// session_start();
+if (isset($_POST['email'],$_POST['password'])){
+    
+    $email = checkInput($_POST['email']);
+    $password = checkInput($_POST['password']);
+    $hash = sha1($password);
+    $query = "SELECT * FROM users WHERE email='$email' AND password='$hash'";
+    $result = mysqli_query($conn,$query);
+    $row_cnt = mysqli_num_rows($result);
+    if($row_cnt){
+        // $_SESSION['name'] = $name;
+         header("Location: dashboard.php");
+    }else{
+       echo( "Le nom d'utilisateur ou le mot de passe est incorrect.");
+      }
+}
 
+?>
 </body>
 
 </html>

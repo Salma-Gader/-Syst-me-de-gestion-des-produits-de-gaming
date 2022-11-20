@@ -24,22 +24,22 @@
                             <h3>Sign up</h3>
                         </div>
                         <div>
-                            <form class="m-5">
+                            <form class="m-5" method="post" action="#">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">User Name</label>
-                                    <input type="text" id="username" class="form-control">
+                                    <input type="text" id="username" class="form-control" name="name">
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="text" id="email" class="form-control">
+                                    <input type="text" id="email" class="form-control" name="email">
                                 </div>
                                 <div>
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" id="password" class="form-control">
+                                    <input type="password" id="password" class="form-control" name="password">
                                 </div>
                                 <div class="btn_div">
-                                    <a class="btn_singin border-0 form-control btn btn-danger mt-3"
-                                        href="login.php">Sign up</a>
+                                    <input type="submit" name="submit" class="btn_singin border-0 form-control btn btn-danger mt-3"
+                                        value="Sign up">
                                 </div>
                             </form>
                         </div>
@@ -52,7 +52,7 @@
                             <h5> you have account ?</h5>
                         </div>
                         <div class="mt-5">
-                            <a class=" btn-singup btn btn btn-outline-dark text-white" href='login.php'>Sign in</a>
+                            <a class=" btn-singup btn btn btn-outline-dark text-white" href='signin.php'>Sign in</a>
                         </div>
                     </div>
                 </div>
@@ -63,3 +63,36 @@
 </body>
 
 </html>
+<?php
+include('database.php');
+include('helpers.php');
+
+if (isset($_POST['name'], $_POST['email'], $_POST['password'])){ //checked if request have this paramettres type POST
+
+    $name = checkInput($_POST['name']);
+    $email = checkInput($_POST['email']);
+    $password = checkInput($_POST['password']);
+    //validation value of inputs 
+    if($name === "" || $name === null){
+        echo('Please Enter Name');
+    }else if ($email === "" || $email === null) {
+        echo('Please Enter email');
+    }else if ($password === "" || $password === null){
+        echo('Please Enter password');  
+    }
+    else {
+        $hash = sha1($password);
+        $checkEmail = mysqli_query($conn,"SELECT * FROM `users` WHERE email ='$email' "); 
+        if(mysqli_num_rows($checkEmail)>0){
+           echo("this email already exist");
+            
+        }else{
+            $query = "INSERT INTO `users`VALUES (null,'$name','$email','$hash')";
+            $result= mysqli_query($conn,$query);
+            if($result){
+                echo('success');
+            }else die("error");
+        }
+     }
+ }
+?>
