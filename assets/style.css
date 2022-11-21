@@ -4,6 +4,21 @@ body {
 
 .div_part2 {
     background-image: linear-gradient(130deg, #41a4dd, #3c6fa2);
+    transition: all .2s ease-in-out;
+    border: 3px solid tomato;
+}
+
+
+/* .div_part2{
+
+} */
+
+#signIn {
+    transition: all .2s ease-in-out;
+}
+
+#signIn:hover {
+    transform: scale(1.1);
 }
 
 .btn {

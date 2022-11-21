@@ -38,8 +38,8 @@
                                     <input type="password" id="password" class="form-control" name="password">
                                 </div>
                                 <div class="btn_div">
-                                    <input type="submit" name="submit" class="btn_singin border-0 form-control btn btn-danger mt-3"
-                                        value="Sign up">
+                                    <input type="submit" name="submit"
+                                        class="btn_singin border-0 form-control btn btn-danger mt-3" value="Sign up">
                                 </div>
                             </form>
                         </div>
@@ -60,6 +60,7 @@
         </div>
     </section>
 </body>
+
 </html>
 <?php
 include('database.php');
@@ -94,5 +95,3 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'])){ //checked if re
      }
  }
 ?>
-Footer
-

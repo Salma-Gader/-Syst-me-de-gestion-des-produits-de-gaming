@@ -1,9 +1,12 @@
 <?php
-session_start();
+include('helpers.php');
+include('database.php');
+
 if(!isset($_SESSION["email"])){
     header("Location: signin.php");
     exit(); 
   }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,57 +17,23 @@ if(!isset($_SESSION["email"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/style.css">
     <title>Dasshboard</title>
 </head>
 
 <body class="dash-body">
-    <!--start sidebar-->
-    <!--
-    <div class="navigation">
-        <ul>
-            <li>
-                <span><img src="../assets/img/logo.png" class="img-fluid" width="100px" alt="logo"></span>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><i class="bi bi-person-circle"></i></span>
-                    <span class="title">Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><i class="bi bi-card-heading"></i></span>
-                    <span class="title">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><i class="bi bi-plus-circle-fill"></i></span>
-                    <span class="title">Add product</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-                    <span class="title">Sign out</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="toggle"></div>-->
-    <!--end sidebar-->
-    <!--start navbar-->
     <nav class="navbar navbar-expand-lg" style="background-color: #3E6D9C;">
         <div class="container-fluid">
             <div>
                 <img src="../assets/img/logo.png" class="img-fluid" width="100px" alt="logo">
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -75,10 +44,12 @@ if(!isset($_SESSION["email"])){
                     </li>
                 </ul>
                 <span class="navbar-text">
-                    <button class="btn-signout btn btn btn-outline-dark text-white">Add product <i class="bi bi-plus"></i></button>
+                    <a class="btn-signout btn btn btn-outline-dark text-white" href="add.php">Add product <i
+                            class="bi bi-plus"></i></a>
                 </span>
                 <span class="navbar-text ms-5">
-                    <a class="btn-signout btn btn btn-outline-dark text-white" href="signout.php">Sign out <i class="bi bi-box-arrow-right"></i></a>
+                    <a class="btn-signout btn btn btn-outline-dark text-white" href="signout.php">Sign out <i
+                            class="bi bi-box-arrow-right"></i></a>
                 </span>
             </div>
         </div>
@@ -109,6 +80,14 @@ if(!isset($_SESSION["email"])){
                     </div>
                 </div>
                 <div class="product-table container mt-5 table-responsive">
+                    <?php if (isset($_SESSION['message'])) : ?>
+                    <div class='alert alert-success' role='alert'>
+                        <?= $_SESSION['message']?>
+                        <?php unset($_SESSION['message']);?>
+                    </div>
+                    <?php endif?>
+                    
+                    <?php $results = mysqli_query($conn, "SELECT * FROM products"); ?>
                     <table class="tabl-e table">
                         <thead>
                             <tr>
@@ -123,36 +102,22 @@ if(!isset($_SESSION["email"])){
                             </tr>
                         </thead>
                         <tbody>
+                            <?php while ($row = mysqli_fetch_array($results)) { ?>
+
                             <tr>
                                 <th scope="row">1</th>
-                                <td><img src="../assets/img/clavier (1).png" class="card-img-top" alt="Product" class="img-fluid" height="80" width="70px"></td>
-                                <td>keyboard</td>
-                                <td>keyboard gaming E50 ENET (AZERTY)</td>
-                                <td>100</td>
-                                <td>190$</td>
+                                <td><img src="../assets/img/<?= $row['image']; ?>"class="card-img-top" alt="Product"
+                                        class="img-fluid" height="80" width="70px"></td>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><?php echo $row['description']; ?></td>
+                                <td><?php echo $row['quantity']; ?></td>
+                                <td><?php echo $row['price']; ?></td>
                                 <td><a href="#"><i class="bi bi-trash3-fill"></i></a></td>
                                 <td><a href="#"><i class="bi bi-pencil-square"></i></a></td>
                             </tr>
+                            <?php } ?>
                             <tr>
-                                <th scope="row">2</th>
-                                <td><img src="../assets/img/mouse.png" class="card-img-top" alt="Product" class="img-fluid" height="80" width="70px"></td>
-                                <td>Mouse</td>
-                                <td>M8 Wireless Ultra-Light Gaming Mouse - Black</td>
-                                <td>160</td>
-                                <td>99$</td>
-                                <td><a href="#"><i class="bi bi-trash3-fill"></i></a></td>
-                                <td><a href="#"><i class="bi bi-pencil-square"></i></a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td><img src="../assets/img/GLADIATOR.png" class="card-img-top" alt="Product" class="img-fluid" height="80" width="70px"></td>
-                                <td>Gladiator</td>
-                                <td>GLADIATOR G001-NW</td>
-                                <td>200</td>
-                                <td>279$</td>
-                                <td><a href="#"><i class="bi bi-trash3-fill"></i></a></td>
-                                <td><a href="#"><i class="bi bi-pencil-square"></i></a></td>
-                            </tr>
+
                         </tbody>
                     </table>
                 </div>
