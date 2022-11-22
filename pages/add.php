@@ -40,7 +40,7 @@ include('database.php');
         <label for="price" class="form-label">Price</label>
         <input type="name" class="form-control" id="price" aria-describedby="name" name="price">
         </div>
-        <button type="submit" class="btn btn-primary mt-5" name="save">Save</i></button>
+        <button type="submit" class="btn btn-primary mt-5" name="save">Save</button>
     </form>
 </body>
 

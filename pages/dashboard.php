@@ -55,6 +55,13 @@ if(!isset($_SESSION["email"])){
         </div>
     </nav>
     <!---end navbar-->
+    <section>
+        <?php if (isset($_SESSION["email"])) : ?>
+        <div class='alert' role='alert'>
+            Welcome <?= $_SESSION["email"]?> !
+        </div>
+        <?php endif?>
+    </section>
     <!--start dashboard-->
     <section class="d-flex flex-row min-vh-100 mt-5">
         <form class="container" method="POST">
@@ -86,7 +93,7 @@ if(!isset($_SESSION["email"])){
                         <?php unset($_SESSION['message']);?>
                     </div>
                     <?php endif?>
-                    
+
                     <?php $results = mysqli_query($conn, "SELECT * FROM products"); ?>
                     <table class="tabl-e table">
                         <thead>
@@ -106,21 +113,23 @@ if(!isset($_SESSION["email"])){
 
                             <tr>
                                 <th scope="row">1</th>
-                                <td><img src="../assets/img/<?= $row['image']; ?>"class="card-img-top" alt="Product"
+                                <td><img src="../assets/img/<?= $row['image']; ?>" class="card-img-top" alt="Product"
                                         class="img-fluid" height="80" width="70px"></td>
                                 <td><?php echo $row['name']; ?></td>
                                 <td><?php echo $row['description']; ?></td>
                                 <td><?php echo $row['quantity']; ?></td>
                                 <td><?php echo $row['price']; ?></td>
-                                <td><a href="dashboard.php?del=<?php echo $row['ID']; ?>" class="del_btn"><i class="bi bi-trash3-fill"></i></a></td>
-                                <td><a href="update.php?edit=<?php echo $row['ID']; ?>" class="edit_btn" ><i class="bi bi-pencil-square"></i></a></td>
+                                <td><a href="dashboard.php?del=<?php echo $row['ID']; ?>" class="del_btn"><i
+                                            class="bi bi-trash3-fill"></i></a></td>
+                                <td><a href="update.php?edit=<?php echo $row['ID']; ?>" class="edit_btn"><i
+                                            class="bi bi-pencil-square"></i></a></td>
                             </tr>
                             <?php } ?>
                             <tr>
 
                         </tbody>
                     </table>
-                            </form>
+        </form>
 
 
     </section>

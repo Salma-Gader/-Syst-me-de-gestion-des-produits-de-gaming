@@ -76,6 +76,7 @@ if (isset($_POST['email'],$_POST['password'])){
     $row_cnt = mysqli_num_rows($result);
     if($row_cnt){
         $_SESSION['email'] = $email;
+        $_SESSION['name'] = $name;
          header("Location: dashboard.php");
     }else{
        echo( "Le nom d'utilisateur ou le mot de passe est incorrect.");
