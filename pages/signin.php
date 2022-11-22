@@ -61,7 +61,6 @@
 <?php
 include('database.php');
 include('helpers.php');
-session_start();
 if (isset($_POST['email'],$_POST['password'])){
     
     $email = checkInput($_POST['email']);

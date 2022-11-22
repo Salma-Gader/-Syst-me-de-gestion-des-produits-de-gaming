@@ -57,7 +57,7 @@ if(!isset($_SESSION["email"])){
     <!---end navbar-->
     <!--start dashboard-->
     <section class="d-flex flex-row min-vh-100 mt-5">
-        <div class="container">
+        <form class="container" method="POST">
             <div class="row mx-auto">
                 <div class="card col-md col-12 m-2 " style="background-color: #a66dd4">
                     <div class="card-body">
@@ -112,15 +112,15 @@ if(!isset($_SESSION["email"])){
                                 <td><?php echo $row['description']; ?></td>
                                 <td><?php echo $row['quantity']; ?></td>
                                 <td><?php echo $row['price']; ?></td>
-                                <td><a href="#"><i class="bi bi-trash3-fill"></i></a></td>
-                                <td><a href="#"><i class="bi bi-pencil-square"></i></a></td>
+                                <td><a href="dashboard.php?del=<?php echo $row['ID']; ?>" class="del_btn"><i class="bi bi-trash3-fill"></i></a></td>
+                                <td><a href="update.php?edit=<?php echo $row['ID']; ?>" class="edit_btn" ><i class="bi bi-pencil-square"></i></a></td>
                             </tr>
                             <?php } ?>
                             <tr>
 
                         </tbody>
                     </table>
-                </div>
+                            </form>
 
 
     </section>

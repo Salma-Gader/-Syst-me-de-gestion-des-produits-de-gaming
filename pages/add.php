@@ -25,37 +25,22 @@ include('database.php');
             <div class="mb-3">
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Add image</label>
-                    <input class="form-control" type="file" id="formFile" name="image">
-                    <div class='alert alert-success' role='alert'>
-                        <?php echo("enter image");?>
-                    </div>
+                    <input class="form-control" type="file" id="formFile" name="image" value="">
                 </div>
 
-                <label for="productName" class="form-label">Product Name</label>
-                <input type="name" class="form-control" id="productName" aria-describedby="name" name="nameProduct" >
-                <div class='alert alert-success' role='alert'>
-                        <?php echo("enter Product Name");?>
-                    </div>
+                <label for="productName" class="form-label">ProduName</label>
+                <input type="name" class="form-control" id="productName" aria-describedby="name" name="nameProduct">
             </div>
             <label for="description" class="form-label">Description</label>
             <input type="name" class="form-control" id="description" aria-describedby="name" name="description">
-            <div class='alert alert-success' role='alert'>
-                        <?php echo("enter Product description");?>
-                    </div>
         </div>
         <label for="quantity" class="form-label">Quantity</label>
         <input type="name" class="form-control" id="quantity" aria-describedby="name" name="quantity">
-        <div class='alert alert-success' role='alert'>
-                        <?php echo("enter quantity");?>
-                    </div>
         </div>
         <label for="price" class="form-label">Price</label>
         <input type="name" class="form-control" id="price" aria-describedby="name" name="price">
-        <div class='alert alert-success' role='alert'>
-                        <?php echo("enter price");?>
-                    </div>
         </div>
-        <button type="submit" class="btn btn-primary mt-5" name="save">Add product <i class="bi bi-plus"></i></button>
+        <button type="submit" class="btn btn-primary mt-5" name="save">Save</i></button>
     </form>
 </body>
 
